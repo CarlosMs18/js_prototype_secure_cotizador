@@ -20,6 +20,8 @@ function cotizarSeguro(e){
     }
     ui.mostrarMensaje('Comenzando Cotizacion...','exito')
 
-    secure.cotizarSeguro(marca.value, optionYears.value,typeSecure.value)
+    const total = secure.cotizarSeguro(marca.value, optionYears.value,typeSecure.value)
+
+    ui.mostrarResultado(total, marca.value, optionYears.value, typeSecure.value)
 
 }

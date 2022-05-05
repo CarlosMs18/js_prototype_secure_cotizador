@@ -31,6 +31,46 @@ function UI(){
             }, 2500);
 
     }
+
+    UI.prototype.mostrarResultado = (total, marca, year, value) => {
+            let tipoMarca;
+            switch (marca) {
+                case '1':
+                    tipoMarca = 'Americano'
+                    break;
+                case '2':
+                    tipoMarca = 'Asiatico'
+                    break;
+                case '3':
+                    tipoMarca = 'Europeo'
+                    break;
+                default:
+                    break;
+            }
+
+            const div = document.createElement('div')
+            div.innerHTML += `
+            <p class = "header">Tu resumen</p>
+            <p class = "font-bold">Marca : ${tipoMarca}</p>
+            <p class = "font-bold">Año : ${year}</p>
+            <p class = "font-bold">Tipo : ${value}</p>
+            <p class = "font-bold">Total : ${total}</p>
+            `
+
+
+            /* document.querySelector('#resultado').appendChild(div) */
+
+            const spinner = document.querySelector('#cargando')
+            spinner.style.display = 'block'
+
+            setTimeout(() => {
+                spinner.style.display = 'none'
+                document.querySelector('#resultado').appendChild(div)
+            }, 2500);
+    }
+
+
+
 }
 
 
